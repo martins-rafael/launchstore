@@ -1,0 +1,15 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+    <section class="container form">
+        <form method="POST" action="/products">
+            <div class="header">
+                <h3>Cadastrar Produto</h3>
+            </div>
+            <div class="fields">
+                {% include "products/fields.njk" %}
+            </div>
+            <button class="btn" type="submit">Salvar</button>
+        </form>
+    </section>
+{% endblock %}
