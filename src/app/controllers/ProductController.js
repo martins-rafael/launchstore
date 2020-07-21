@@ -24,9 +24,18 @@ module.exports = {
         let results = await Product.create(req.body);
         const productId = results.rows[0].id;
 
+        return res.redirect(`/products/${productId}`);
+    },
+    async edit(req, res) {
+        let results = await Product.find(req.params.id);
+        const product = results.rows[0];
+
+        if (!product) return res.send('Produto não encontrado!');
+
         results = await Category.all();
         const categories = results.rows;
 
-        return res.render('products/create', { productId, categories });
+        return res.render('products/edit', { product, categories });
+
     }
 };
