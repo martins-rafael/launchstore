@@ -251,3 +251,17 @@ form .item #photos-input {
     opacity: 0;
     cursor: pointer;
 }
+
+form .item #photo-preview {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin: 8px 0;
+    width: 100%;
+}
+
+form .item #photo-preview img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
