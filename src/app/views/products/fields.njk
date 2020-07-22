@@ -32,7 +32,7 @@
 </div>
 
 <div class="item">
-    <div>Fotos</div>
+<div>Fotos</div>
     <div>
         <div id="photos-upload">
             <input
@@ -41,11 +41,12 @@
             name="photos"
             multiple
             accept="image/*"
+            onchange="PhotosUpload.handleFileInput(event)"
             >
             <p>Selecione até 6 fotos</p>
         </div>
         <div id="photo-preview">
-            
+
         </div>
     </div>
 </div>
