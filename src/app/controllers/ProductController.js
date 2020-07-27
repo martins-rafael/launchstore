@@ -47,14 +47,14 @@ module.exports = {
         // get categories
         results = await Category.all();
         const categories = results.rows;
-        let files = results.rows;
-        files.map(file => ({
-            ...file,
-            src:`${req.protocol}://${req.headers.host}${file.path.replace('public', '')}`
-        }));
 
         //get images
         results = await Product.files(product.id);
+        let files = results.rows;
+        files = files.map(file => ({
+            ...file,
+            src:`${req.protocol}://${req.headers.host}${file.path.replace('public', '')}`
+        }));
 
         return res.render('products/edit', { product, categories, files });
     },
