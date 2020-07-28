@@ -53,7 +53,7 @@ module.exports = {
         let files = results.rows;
         files = files.map(file => ({
             ...file,
-            src:`${req.protocol}://${req.headers.host}${file.path.replace('public', '')}`
+            src: `${req.protocol}://${req.headers.host}${file.path.replace('public', '')}`
         }));
 
         return res.render('products/edit', { product, categories, files });
@@ -62,9 +62,18 @@ module.exports = {
         const keys = Object.keys(req.body);
 
         for (let key of keys) {
-            if (req.body[key] == '') {
+            if (req.body[key] == '' && key != 'removed_files') {
                 return res.send('Por favor, preencha todos os campos.');
             }
+        }
+
+        if (req.body.removed_files) {
+            const removedFiles = req.body.removed_files.split(',');
+            const lastIndex = removedFiles.length - 1;
+            removedFiles.splice(lastIndex, 1);
+
+            const removedFilesPromise = removedFiles.map(id => File.delete());
+            await Promise.all(removedFilesPromise);
         }
 
         req.body.price = req.body.price.replace(/\D/g, '');
