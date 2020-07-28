@@ -67,6 +67,14 @@ module.exports = {
             }
         }
 
+        if (req.files.length != 0) {
+            const newFilesPromise = req.files.map(file => {
+                File.create({ ...file, product_id: req.body.id });
+            });
+
+            await Promise.all(newFilesPromise);
+        }
+
         if (req.body.removed_files) {
             const removedFiles = req.body.removed_files.split(',');
             const lastIndex = removedFiles.length - 1;
@@ -85,7 +93,7 @@ module.exports = {
 
         await Product.update(req.body);
 
-        return res.redirect(`products/${req.body.id}`)
+        return res.redirect(`products/${req.body.id}/edit`)
     },
     async delete(req, res) {
         await Product.delete(req.body.id);
