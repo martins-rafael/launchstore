@@ -19,6 +19,8 @@ html, body {
 }
 
 body {
+    display: flex;
+    flex-direction: column;
     background-color: #f9f9f9;
 }
 
@@ -64,9 +66,9 @@ body {
     background: rgb(214, 43, 43);
 }
 
-/* =============
-==== HEADER ====
-============= */
+/* ======================
+==== HEADER | FOOTER ====
+====================== */
 
 header, footer {
     width: 100%;
@@ -85,6 +87,10 @@ header div.container {
 
 header div.container a {
     justify-self: start;
+}
+
+footer {
+    margin-top: auto;
 }
 
 /* ===========
@@ -290,4 +296,85 @@ form .item #photo-preview {
 
 #photo-preview .photo i:hover {
     opacity: 1;
+}
+
+/* ===================
+==== PRODUCT VIEW ====
+=================== */
+
+.product-single {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 32px auto;
+    padding: 32px 24px;
+    background-color: #fff;
+    border: 1px solid #efefef;
+    border-radius: 4px;
+    box-shadow: 2px 2px 2px -4px rgba(60, 60, 60, .9);
+}
+
+.product-single .gallery {
+    width: 100%;
+}
+
+.product-single .gallery img {
+    width: 100%;
+}
+
+/* ==========================
+==== PRODUCT SINGLE INFO ====
+========================== */
+
+.product-single .info {
+    display: grid;
+    grid-template-rows: auto 40px 2fr 1fr;
+}
+
+.product-single .info h1 {
+    font-size: 32px;
+    line-height: 42px;
+    text-transform: uppercase;
+    color: #333;
+}
+
+.product-single .info .published {
+    font-size: 12px;
+    line-height: 22px;
+    letter-spacing: .4px;
+    color: #888;
+}
+
+/* ================
+==== PRICE-BUY ====
+================ */
+
+.product-single .price-buy {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 8px;
+    border-top: 1px solid #eee;
+}
+
+.product-single .price-buy .price {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.product-single .price-buy .price .old {
+    margin-left: 8px;
+    text-decoration: line-through;
+    font-size: 14px;
+    font-weight: normal;
+    color: #999;
+}
+
+.product-single .price-buy .buy button {
+    font-size: 14px;
+    letter-spacing: .4px;
+    background-color: var(--secondary-color);
 }
