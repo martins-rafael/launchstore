@@ -314,12 +314,41 @@ form .item #photo-preview {
     box-shadow: 2px 2px 2px -4px rgba(60, 60, 60, .9);
 }
 
+/* ======================
+==== PRODUCT GALLERY ====
+====================== */
+
 .product-single .gallery {
     width: 100%;
 }
 
-.product-single .gallery img {
+.product-single .highlight > img {
     width: 100%;
+    height: 400px;
+    object-fit: none;
+    object-position: 50% 50%;
+    border: 1px solid #efefef;
+    cursor: zoom-in;
+}
+
+.product-single .gallery-preview {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+}
+
+.product-single .gallery-preview img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    opacity: 0.6;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.product-single .gallery-preview img:hover,
+.product-single .gallery-preview img.active {
+    opacity: 1;
 }
 
 /* ==========================
