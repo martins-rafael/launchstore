@@ -446,11 +446,57 @@ form .item #photo-preview {
     text-decoration: line-through;
     font-size: 14px;
     font-weight: normal;
-    color: #999;
+    color: rgb(182, 56, 56);
 }
 
 .product-single .price-buy .buy button {
     font-size: 14px;
     letter-spacing: .4px;
     background-color: var(--secondary-color);
+}
+
+/* ===========
+==== SHOP ====
+=========== */
+
+.shop h2 {
+    margin: 48px 0;
+}
+
+.shop .items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+.shop .product {
+    display: grid;
+}
+
+.shop .product .image {
+    padding-top: 56.25%;
+    background-position: center, center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.shop .items h4 {
+    margin: 8px 0;
+    font-weight: 400;
+    color: #999;
+}
+
+.shop .items p {
+    margin-top: 8px;
+    font-size: 24px;
+    font-weight: 300;
+    color: #333;
+}
+
+.shop .product .old-price {
+    margin: 4px 0;
+    padding: 0;
+    font-size: 14px;
+    color: rgb(182, 56, 56);
+    text-decoration: line-through;
 }
