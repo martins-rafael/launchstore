@@ -1,0 +1,23 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+    <section class="shop container">
+        <h2>Últimos produtos</h2>
+
+        <div class="items">
+            {% for product in products %}
+                <div class="product">
+                    <div
+                        class="image" 
+                        style="backgorund: url({{product.image if product.img else '//placehold.it/500x500?text=Produto sem imagem'}})"
+                    >
+                        <p>{{product.price}}</p>
+                        <h4>{{product.name}}</h4>
+
+                        <a href="/products/{{product.id}}" class="button">Ver Produto</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}
