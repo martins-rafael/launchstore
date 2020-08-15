@@ -1,4 +1,5 @@
 {% extends "layout.njk" %}
+{% import "parts/section-products.njk" as section %}
 
 {% block content %}
     <section class="search-products container">
@@ -17,23 +18,6 @@
             </nav>
         </aside>
 
-        <div class="items">
-            {% for product in products %}
-                <div class="product">
-                    <div
-                        class="image" 
-                        style="background-image: url('{{product.img if product.img else '//placehold.it/500x500?text=Produto sem foto'}}');"
-                    ></div>
-
-                    {%if product.oldPrice != product.price %}
-                        <div class="old-price">{{product.oldPrice}}</div>
-                    {%endif%}
-                    <p>{{product.price}}</p>
-                    <h4>{{product.name}}</h4>
-
-                    <a href="/products/{{product.id}}" class="btn">Ver Produto</a>
-                </div>
-            {% endfor %}
-        </div>
+        {{ section.products("", "searched", products) }}
     </section>
 {% endblock %}
