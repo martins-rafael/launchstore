@@ -23,7 +23,6 @@ module.exports = {
                 product.img = await getImage(product.id);
                 product.oldPrice = formatPrice(product.old_price);
                 product.price = formatPrice(product.price);
-
                 return product;
             }).filter((product, index) => index > 2 ? false : true);
 
