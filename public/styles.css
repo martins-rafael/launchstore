@@ -500,3 +500,46 @@ form .item #photo-preview {
     color: rgb(182, 56, 56);
     text-decoration: line-through;
 }
+
+/* ==================
+==== SEARCH PAGE ====
+================== */
+
+.search-products {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    margin-top: 48px;
+}
+
+.search-products .header {
+    margin-bottom: 48px;
+    font-size: 14px;
+    color: #333;
+}
+
+.search-products .header h2 {
+    margin-bottom: 8px;
+    font-size: 26px;
+    text-transform: capitalize;
+}
+
+.search-products nav h4 {
+    margin-bottom: 16px;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #333;
+}
+
+.search-products nav ul li {
+    margin: 4px 0;
+}
+
+.search-products nav ul li a {
+    color: #777;
+    transition: .2s;
+}
+
+.search-products nav ul li a:hover {
+    font-weight: bold;
+    color: #111;
+}
