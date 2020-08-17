@@ -5,15 +5,16 @@
     <section class="search-products container">
         <aside>
             <div class="header">
-                <h2>iPhone</h2>
-                <p>1 encontrado(s)</p>
+                <h2>{{search.term}}</h2>
+                <p>{{search.total}} encontrado(s)</p>
             </div>
 
             <nav class="categories">
                 <h4>Categorias</h4>
                 <ul>
-                    <li><a href="#">Eletrônicos</a></li>
-                    <li><a href="#">Smartphones</a></li>
+                    {% for category in categories %}
+                        <li><a href="/products/search?filter={{search.term}}&category={{category.id}}">{{category.name}}</a></li>
+                    {% endfor %}
                 </ul>
             </nav>
         </aside>
