@@ -186,6 +186,7 @@ form .item > div {
     color: #777;
 }
 
+form .item .input input,
 form .item input[type="text"],
 form .item input[type="number"],
 form .item textarea,
@@ -543,3 +544,19 @@ form .item #photo-preview {
     font-weight: bold;
     color: #111;
 }
+
+/* ====================
+==== USER REGISTER ====
+==================== */
+
+.user-register.container.form {
+    max-width: 500px;
+}
+
+/* .form input[name="email"],
+.form input[name="password"],
+.form input[name="password_repeat"],
+.form input[name="cpf_cnpj"],
+.form input[name="cep"] {
+    max-width: 60%;
+} */
