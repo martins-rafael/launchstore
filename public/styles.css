@@ -553,10 +553,10 @@ form .item #photo-preview {
     max-width: 500px;
 }
 
-/* .form input[name="email"],
-.form input[name="password"],
-.form input[name="password_repeat"],
-.form input[name="cpf_cnpj"],
-.form input[name="cep"] {
-    max-width: 60%;
-} */
+.input .error {
+    margin-top: 4px;
+    padding: 4px 8px;
+    color: #fff;
+    background-color: #e74c3c;
+    border-radius: 4px;
+}
