@@ -43,6 +43,23 @@ const Mask = {
     }
 };
 
+const Validate = {
+    apply(input, func) {
+        let results = Validate[func](input.value);
+        input.value = results.value;
+
+        if (results.error) alert('Este formato de email não é válido!');
+
+    },
+    isEmail(value) {
+        let error = null;
+        return {
+            error,
+            value
+        };
+    }
+}
+
 const PhotosUpload = {
     input: '',
     preview: document.querySelector('#photo-preview'),
