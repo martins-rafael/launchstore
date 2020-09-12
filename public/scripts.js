@@ -48,11 +48,15 @@ const Validate = {
         let results = Validate[func](input.value);
         input.value = results.value;
 
-        if (results.error) alert('Este formato de email não é válido!');
+        if (results.error) alert(results.error);
 
     },
     isEmail(value) {
         let error = null;
+        const mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+        if (!value.match(mailFormat)) error = 'Email invalido!';
+
         return {
             error,
             value
