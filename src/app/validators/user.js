@@ -5,8 +5,12 @@ async function post(req, res, next) {
     const keys = Object.keys(req.body);
 
     for (let key of keys) {
-        if (req.body[key] == '')
-            return res.send('Por favor, preencha todos os campos.');
+        if (req.body[key] == '') {
+            return res.render('user/register', {
+                user: req.body,
+                error: 'Por favor, preencha todos os campos.'
+            });
+        }
     }
 
     // check if user exists
@@ -19,11 +23,18 @@ async function post(req, res, next) {
         or: { cpf_cnpj }
     });
 
-    if (user) return res.send('Este usuário já está cadastrado!');
+    if (user) return res.render('user/register', {
+        user: req.body,
+        error: 'Este usuário já está cadastrado!'
+    });
 
     // check if password match
-    if (password != password_repeat)
-        return res.send('Campos senha e repetir senha precisar ser iguais.');
+    if (password != password_repeat) {
+        return res.render('user/register', {
+            user: req.body,
+            error: 'Os campos senha e repetir senha precisar ser iguais.'
+        });
+    }
 
     next();
 }
