@@ -26,7 +26,7 @@ module.exports = {
 
             // token expires in one hour
             let now = new Date();
-            now = now.setHours(now.getHours + 1);
+            now = now.setHours(now.getHours() + 1);
 
             await User.update(user.id, {
                 reset_token: token,
@@ -55,6 +55,25 @@ module.exports = {
             });
         } catch (err) {
             console.error(err);
+
+            return res.render('session/forgot-password', {
+                error: 'Erro inesperado, tente novamente!'
+            });
+        }
+    },
+    resetForm(req, res) {
+        return res.render('session/password-reset', { token: req.query.token });
+    },
+    reset(req, res) {
+        try {
+            const { email, password, password_repeat, token } = req.body;
+
+        } catch (err) {
+            console.error(err);
+
+            return res.render('session/password-reser', {
+                error: 'Erro inesperado, tente novamente!'
+            });
         }
     }
 }
