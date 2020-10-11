@@ -51,13 +51,13 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
---auto update_at products
+-- auto update_at products
 CREATE TRIGGER set_timestamp
 BEFORE UPDATE ON products
 FOR EACH ROW
 EXECUTE PROCEDURE trigger_set_timestamp();
 
---auto updated_at users
+-- auto updated_at users
 CREATE TRIGGER set_timestamp
 BEFORE UPDATE ON users
 FOR EACH ROW
@@ -90,3 +90,13 @@ ADD CONSTRAINT files_product_id_fkey
 FOREIGN KEY ("product_id")
 REFERENCES "products" ("id")
 ON DELETE CASCADE;
+
+-- to run seeds
+DELETE FROM users;
+DELETE FROM products;
+DELETE FROM files;
+
+-- restart sequence auto increment from tables ids
+ALTER SEQUENCE user_id_seq RESTART WITH 1;
+ALTER SEQUENCE products_id_seq RESTART WITH 1;
+ALTER SEQUENCE files_id_seq RESTART WITH 1;
