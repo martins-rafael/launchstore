@@ -9,7 +9,7 @@ function find(filters, table) {
             query += ` ${key}`;
 
             Object.keys(filters[key]).map(field => {
-                query += `${field} = '${filters[key][field]}'
+                query += ` ${field} = '${filters[key][field]}'
                 `;
             });
         });
@@ -26,8 +26,12 @@ const Base = {
         return this;
     },
     async find(id) {
-        const results = await find({ where: { id } }, this.table);
-        return results.rows[0];
+        try {
+            const results = await find({ where: { id } }, this.table);
+            return results.rows[0];
+        } catch (err) {
+            console.error(err);
+        }
     },
     async findOne(filters) {
         const results = await find(filters, this.table);

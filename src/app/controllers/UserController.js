@@ -26,7 +26,7 @@ module.exports = {
         try {
             let { name, email, password, cpf_cnpj, cep, address } = req.body;
 
-            password = await hash(data.password, 8);
+            password = await hash(password, 8);
             cpf_cnpj = cpf_cnpj.replace(/\D/g, '');
             cep = cep.replace(/\D/g, '');
 
@@ -84,8 +84,8 @@ module.exports = {
 
             let promiseResults = await Promise.all(allFilesPromise);
 
-            promiseResults.map(results => {
-                results.rows.map(file => {
+            promiseResults.map(files => {
+                files.map(file => {
                     try {
                         unlinkSync(file.path);
                     } catch (err) {

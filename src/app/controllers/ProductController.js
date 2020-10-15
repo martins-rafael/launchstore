@@ -1,3 +1,5 @@
+const { unlinkSync } = require('fs');
+
 const Category = require('../models/Category');
 const Product = require('../models/Product');
 const File = require('../models/File');
@@ -43,7 +45,8 @@ module.exports = {
             });
 
             const filesPromise = req.files.map(file => File.create({
-                ...file,
+                name: file.name,
+                path: file.path,
                 product_id
             }));
             await Promise.all(filesPromise);
@@ -132,7 +135,7 @@ module.exports = {
 
             if (req.body.old_price != req.body.price) {
                 const oldProduct = await Product.find(req.body.id);
-                req.body.old_price = oldProduct.rows[0].price;
+                req.body.old_price = oldProduct.price;
             }
 
             await Product.update(req.body.id, {
@@ -152,7 +155,17 @@ module.exports = {
     },
     async delete(req, res) {
         try {
+            const files = await Product.files(req.body.id);
             await Product.delete(req.body.id);
+
+            files.map(file => {
+                try {
+                    unlinkSync(file.path);
+                } catch (err) {
+                    console.error(err);
+                }
+            });
+
             return res.redirect('/');
         } catch (err) {
             console.error(err);
