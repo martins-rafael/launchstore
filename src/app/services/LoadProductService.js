@@ -1,5 +1,5 @@
-const Product = require('../app/models/Product');
-const { formatPrice, date } = require('../lib/utils');
+const Product = require('../models/Product');
+const { formatPrice, date } = require('../../lib/utils');
 
 async function getImages(productId) {
     let files = await Product.files(productId);
@@ -15,7 +15,7 @@ async function format(product) {
     const files = await getImages(product.id);
     product.img = files[0].src;
     product.files = files;
-    product.formatedOldPrice = formatPrice(product.oldprice);
+    product.formatedOldPrice = formatPrice(product.old_price);
     product.formatedPrice = formatPrice(product.price);
 
     const { minutes, hour, day, month } = date(product.updated_at);
