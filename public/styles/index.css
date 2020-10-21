@@ -149,6 +149,10 @@ nav.primary ul li a i {
 ==== PRODUCTS FORM ====
 ==================== */
 
+.product-create {
+    max-width: 700px;
+}
+
 section.form {
     margin: 32px auto;
     padding: 32px 24px;
@@ -299,163 +303,6 @@ form .item #photo-preview {
     opacity: 1;
 }
 
-/* ===================
-==== PRODUCT VIEW ====
-=================== */
-
-.product-single {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    margin: 32px auto;
-    padding: 32px 24px;
-    background-color: #fff;
-    border: 1px solid #efefef;
-    border-radius: 4px;
-    box-shadow: 2px 2px 2px -4px rgba(60, 60, 60, .9);
-}
-
-/* ======================
-==== PRODUCT GALLERY ====
-====================== */
-
-.product-single .gallery {
-    width: 100%;
-}
-
-.product-single .highlight > img {
-    width: 100%;
-    height: 400px;
-    object-fit: none;
-    object-position: 50% 50%;
-    border: 1px solid #efefef;
-    cursor: zoom-in;
-}
-
-.product-single .gallery-preview {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
-}
-
-.product-single .gallery-preview img {
-    width: 100%;
-    height: 100px;
-    object-fit: cover;
-    opacity: 0.6;
-    cursor: pointer;
-    transition: .2s;
-}
-
-.product-single .gallery-preview img:hover,
-.product-single .gallery-preview img.active {
-    opacity: 1;
-}
-
-/* ==============================
-==== LIGHTBOX PRODUCT GALLERY====
-============================== */
-
-.product-single .highlight .lightbox-target {
-    position: fixed;
-    top: -100%;
-    left: 0;
-    z-index: 100;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, .7);
-    opacity: 0;
-    transition: opacity .4s;
-    overflow: hidden;
-}
-
-.product-single .highlight .lightbox-target img {
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    margin: auto;
-    width: 90%;
-    height: 90%;
-    background-color: #fff;
-    object-fit: contain;
-    border-radius: 4px;
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, .3);
-}
-
-.product-single .highlight a.lightbox-close {
-    position: absolute;
-    top: -80px;
-    right: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px;
-    height: 50px;
-    color: #f00;
-    background-color: #fff;
-    border-radius: 50%;
-    transition: .4s;
-}
-
-/* ==========================
-==== PRODUCT SINGLE INFO ====
-========================== */
-
-.product-single .info {
-    display: grid;
-    grid-template-rows: auto 40px 2fr 1fr;
-}
-
-.product-single .info h1 {
-    font-size: 32px;
-    line-height: 42px;
-    text-transform: uppercase;
-    color: #333;
-}
-
-.product-single .info .published {
-    font-size: 12px;
-    line-height: 22px;
-    letter-spacing: .4px;
-    color: #888;
-}
-
-/* ================
-==== PRICE-BUY ====
-================ */
-
-.product-single .price-buy {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 8px;
-    border-top: 1px solid #eee;
-}
-
-.product-single .price-buy .price {
-    display: flex;
-    align-items: center;
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-}
-
-.product-single .price-buy .price .old {
-    margin-left: 8px;
-    text-decoration: line-through;
-    font-size: 14px;
-    font-weight: normal;
-    color: rgb(182, 56, 56);
-}
-
-.product-single .price-buy .buy button {
-    font-size: 14px;
-    letter-spacing: .4px;
-    background-color: var(--secondary-color);
-}
-
 /* ===========
 ==== SHOP ====
 =========== */
@@ -521,7 +368,7 @@ form .item #photo-preview {
 .search-products .header h2 {
     margin-bottom: 8px;
     font-size: 26px;
-    text-transform: capitalize;
+    text-transform: uppercase;
 }
 
 .search-products nav h4 {

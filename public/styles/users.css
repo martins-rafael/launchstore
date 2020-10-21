@@ -2,8 +2,9 @@
 ==== USER REGISTER ====
 ==================== */
 
-.users-register {
-    max-width: 500px;
+.users-register,
+.user-dashboard {
+    max-width: 600px;
 }
 
 .users-ads {
