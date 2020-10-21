@@ -545,14 +545,6 @@ form .item #photo-preview {
     color: #111;
 }
 
-/* ====================
-==== USER REGISTER ====
-==================== */
-
-.user-register.container.form {
-    max-width: 500px;
-}
-
 .input .error {
     margin-top: 4px;
     padding: 4px 8px;

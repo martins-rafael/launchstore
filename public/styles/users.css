@@ -1,0 +1,73 @@
+/* ====================
+==== USER REGISTER ====
+==================== */
+
+.users-register {
+    max-width: 500px;
+}
+
+.users-ads {
+    max-width: 700px;
+}
+
+.users-ads .items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    padding: 16px 0;
+}
+
+.users-ads .item {
+    display: grid;
+    grid-template-columns: 116px 1fr;
+    align-items: start;
+    color: #444;
+}
+
+.users-ads .item .image {
+    width: 100px;
+    height: 100px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    box-shadow: 2px 2px 4px -4px #000;
+}
+
+.users-ads .info {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+}
+
+.users-ads .info .title {
+    margin-bottom: 4px;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.users-ads .info .price {
+    margin-bottom: 4px;
+    font-weight: bold;
+}
+
+.users-ads .info .published {
+    font-size: 14px;
+    font-weight: lighter;
+}
+
+.users-ads .info .actions {
+    display: flex;
+    margin-top: auto;
+}
+
+.users-ads .info .actions a {
+    margin-right: 16px;
+    color: var(--primary-color);
+}
+
+.users-ads .info .actions a:hover {
+    font-weight: bold;
+    text-decoration: underline;
+}
