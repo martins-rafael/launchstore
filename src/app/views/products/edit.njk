@@ -16,7 +16,11 @@
                 >
             </div>
 
-            <button class="btn update" type="submit">Atualizar</button>
+            <button
+                class="btn update"
+                type="submit"
+                onclick="Validate.allFields(event)"
+            >Atualizar</button>
         </form>
 
         <form id="form-delete" method="POST" action="/products?_method=DELETE">

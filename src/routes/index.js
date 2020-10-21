@@ -1,7 +1,9 @@
 const express = require('express');
 const routes = express.Router();
+
 const products = require('./products');
 const users = require('./users');
+
 const HomeController = require('../app/controllers/HomeController');
 
 routes.use('/products', products);

@@ -100,6 +100,23 @@ const Validate = {
             error,
             value
         };
+    },
+    allFields(event) {
+        const items = document.querySelectorAll('.item input, .item select, .item textarea');
+
+        for (item of items) {
+            if (item.value == '' && item.name != 'removed_files' && item.name != 'photos') {
+                console.log(item)
+                const message = document.createElement('div');
+                message.classList.add('messages');
+                message.classList.add('error');
+                message.style.position = 'fixed';
+                message.innerHTML = 'Todos os campos são obrigatórios!';
+                document.querySelector('body').appendChild(message);
+
+                event.preventDefault();
+            }
+        }
     }
 }
 

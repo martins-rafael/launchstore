@@ -11,7 +11,11 @@
                 {% include "products/fields.njk" %}
             </div>
 
-            <button class="btn" type="submit">Salvar</button>
+            <button
+                class="btn"
+                type="submit"
+                onclick="Validate.allFields(event)"
+            >Salvar</button>
         </form>
     </section>
 {% endblock %}
