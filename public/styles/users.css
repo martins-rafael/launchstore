@@ -22,7 +22,7 @@
     display: grid;
     grid-template-columns: 116px 1fr;
     align-items: start;
-    color: #444;
+    color: #999;
 }
 
 .users-ads .item .image {
@@ -51,6 +51,7 @@
 .users-ads .info .price {
     margin-bottom: 4px;
     font-weight: bold;
+    color: #ccd6f6;
 }
 
 .users-ads .info .published {

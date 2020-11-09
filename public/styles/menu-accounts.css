@@ -9,8 +9,8 @@
     display: block;
     margin-top: 8px;
     width: 150px;
-    background: #fff;
-    border-radius: 4px;
+    background: #121214;
+    border-radius: 8px;
     box-shadow: 0 2px 4px -2px rgba(0, 0, 0, .3);
     transition: all .2s;
     opacity: 0;
@@ -23,9 +23,8 @@
     padding: 8px 16px;
     width: 100%;
     font-size: 14px;
-    color: #777;
-    border-top: 1px solid #eee;
-    border-radius: 4px;
+    color: #999;
+    border-top: 1px solid #333;
     cursor: pointer;
 }
 
@@ -34,13 +33,14 @@
 }
 
 .accounts .submenu li button {
-    background: #fff;
+    background: #121214;
+    border-radius: 0 0 8px 8px;
 }
 
 .accounts .submenu li a:hover,
 .accounts .submenu li button:hover {
     font-weight: bold;
-    color: #111;
+    color: #ccd6f6;
 }
 
 .accounts:hover .submenu {

@@ -58,7 +58,7 @@ async function reset(req, res, next) {
             return res.render('session/password-reset', {
                 user: req.body,
                 token,
-                error: 'Os campos senha e repetir senha precisar ser iguais.'
+                error: 'Os campos senha e repetir senha precisam ser iguais.'
             });
         }
 

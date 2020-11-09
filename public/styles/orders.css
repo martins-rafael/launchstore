@@ -10,6 +10,13 @@
 }
 
 .order-success h2,
+.order-success p,
+.order-error h2,
+.order-error p {
+  color: #ccd6f6;
+}
+
+.order-success h2,
 .order-error h2 {
   margin-top: 32px;
 }

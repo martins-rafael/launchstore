@@ -106,7 +106,6 @@ const Validate = {
 
         for (item of items) {
             if (item.value == '' && item.name != 'removed_files' && item.name != 'photos') {
-                console.log(item)
                 const message = document.createElement('div');
                 message.classList.add('messages');
                 message.classList.add('error');

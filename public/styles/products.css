@@ -21,7 +21,8 @@
     height: 400px;
     object-fit: none;
     object-position: 50% 50%;
-    border: 1px solid #efefef;
+    border: 1px solid #00000044;
+    border-radius: 8px;
     cursor: zoom-in;
 }
 
@@ -56,7 +57,7 @@
     z-index: 100;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, .7);
+    background-color: rgba(0, 0, 0, .3);
     opacity: 0;
     transition: opacity .4s;
     overflow: hidden;
@@ -73,7 +74,7 @@
     height: 90%;
     background-color: #fff;
     object-fit: contain;
-    border-radius: 4px;
+    border-radius: 8px;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, .3);
 }
 
@@ -105,7 +106,7 @@
     font-size: 32px;
     line-height: 42px;
     text-transform: uppercase;
-    color: #333;
+    color: #ccd6f6;
 }
 
 .product-single .info .published {
@@ -113,6 +114,10 @@
     line-height: 22px;
     letter-spacing: .4px;
     color: #888;
+}
+
+.product-single .info .description {
+    color: #999;
 }
 
 /* ================
@@ -125,7 +130,7 @@
     justify-content: space-between;
     padding-top: 8px;
     margin-top: auto;
-    border-top: 1px solid #eee;
+    border-top: 1px solid #333;
 }
 
 .product-single .price-buy .price {
@@ -133,7 +138,7 @@
     align-items: center;
     font-size: 24px;
     font-weight: bold;
-    color: #333;
+    color: #ccd6f6;
 }
 
 .product-single .price-buy .price .old {
@@ -141,7 +146,7 @@
     text-decoration: line-through;
     font-size: 14px;
     font-weight: normal;
-    color: rgb(182, 56, 56);
+    color: #ff1414;
 }
 
 .product-single .price-buy .buy button {
@@ -156,6 +161,7 @@
     font-size: 14px;
     font-weight: bold;
     text-transform: uppercase;
-    color: #777;
-    background-color: #eee;
+    color: #444;
+    background-color: #aaa;
+    border-radius: 24px;
 }

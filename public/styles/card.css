@@ -2,8 +2,9 @@
     margin: 32px auto;
     padding: 32px 24px;
     width: 90%;
-    background-color: #fff;
-    border-radius: 4px;
+    background-color: #121214;
+    /* border: 2px solid #00000044; */
+    border-radius: 16px;
     box-shadow: 0 4px 8px -4px rgba(0, 0, 0, .6);
 }
 
