@@ -45,7 +45,28 @@ const Cart = {
 
         return this;
     },
-    removeOne(productId) { },
+    removeOne(productId) {
+        const inCart = this.items.find(item => item.product.id == productId);
+
+        if (!inCart) return this;
+
+        inCart.quantity--;
+        inCart.price = inCart.product.price * inCart.product.quantity;
+        inCart.formattedPrice = formatPrice(inCart.price);
+
+        this.total.quantity--;
+        this.total.price -= inCart.product.price;
+        this.total.formattedPrice = formatPrice(this.total.price);
+
+        if (inCart.quantity < 1) {
+            this.items = this.items.filter(item =>
+                item.product.id != inCart.product.id);
+
+            return this;
+        }
+
+        return this;
+    },
     delete(productId) { }
 };
 
