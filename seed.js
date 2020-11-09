@@ -16,7 +16,7 @@ async function createUsers() {
     while (users.length < totalUsers) {
         users.push({
             name: faker.name.firstName(),
-            email: faker.internet.email(),
+            email: faker.internet.email().toLocaleLowerCase(),
             password,
             cpf_cnpj: faker.random.number(99999999),
             cep: faker.random.number(99999999),
