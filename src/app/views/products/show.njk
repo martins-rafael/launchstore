@@ -67,9 +67,8 @@
                     {% elseif product.quantity == 0 %}
                         <p class="unavailable">Fora de Estoque</p>
                     {% else %}
-                        <form action="/users/orders" method="POST">
-                            <input type="hidden" name="id" value="{{product.id}}">
-                            <button class="btn">Comprar</button>
+                        <form action="/cart/{{product.id}}/add-one" method="POST">
+                            <button class="btn">Adicionar ao Carrinho</button>
                         </form>
                     {% endif %}
                 </div>
