@@ -2,6 +2,7 @@
     margin: 32px auto;
     padding: 32px 24px;
     width: 90%;
+    max-width: 940px;
     background-color: #121214;
     /* border: 2px solid #00000044; */
     border-radius: 16px;

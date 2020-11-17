@@ -39,6 +39,7 @@
     opacity: 0.6;
     cursor: pointer;
     transition: .2s;
+    border-radius: 2px;
 }
 
 .product-single .gallery-preview img:hover,
@@ -161,7 +162,8 @@
     font-size: 14px;
     font-weight: bold;
     text-transform: uppercase;
-    color: #444;
-    background-color: #aaa;
+    color: #aaa;
+    background-color: transparent;
+    border: 3px solid #aaa;
     border-radius: 24px;
 }
