@@ -128,3 +128,36 @@
   margin: 16px auto;
   width: 240px;
 }
+
+/* ===========
+==== MENU ====
+=========== */
+
+header div.container {
+  grid-template-columns: 220px auto 315px;
+  gap: 8px;
+}
+
+li.cart a {
+  position: relative;
+}
+
+li.cart a span {
+  position: absolute;
+  top: 12px;
+  right: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  background-color: #FF1414;
+  border-radius: 50%;
+}
+
+li.cart a:hover span {
+  color: #333;
+  background-color: #ccd6f6;
+}
