@@ -25,7 +25,7 @@ module.exports = {
         return res.redirect('/cart');
 
     },
-    async removeOne(req, res) {
+    removeOne(req, res) {
         const { id } = req.params;
 
         let { cart } = req.session;
@@ -33,6 +33,15 @@ module.exports = {
         cart = Cart.init(cart).removeOne(id);
 
         req.session.cart = cart;
+        return res.redirect('/cart');
+    },
+    delete(req, res) {
+        const { id } = req.params;
+
+        let { cart } = req.session;
+        if (!cart) return;
+        req.session.cart = Cart.init(cart).delete(id);
+
         return res.redirect('/cart');
     }
 };

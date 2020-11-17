@@ -1,10 +1,10 @@
 const { formatPrice } = require('./utils');
 
 const Cart = {
-    init(oldCard) {
-        if (oldCard) {
-            this.items = oldCard.items;
-            this.total = oldCard.total;
+    init(oldCart) {
+        if (oldCart) {
+            this.items = oldCart.items;
+            this.total = oldCart.total;
         } else {
             this.items = [];
             this.total = {
@@ -36,8 +36,8 @@ const Cart = {
         if (inCart.quantity >= product.quantity) return this;
 
         inCart.quantity++;
-        inCart.price = inCart.price * inCart.quantity;
-        inCart.formatPrice = formatPrice(inCart.price);
+        inCart.price = inCart.product.price * inCart.quantity;
+        inCart.formattedPrice = formatPrice(inCart.price);
 
         this.total.quantity++;
         this.total.price += inCart.product.price;
@@ -51,7 +51,7 @@ const Cart = {
         if (!inCart) return this;
 
         inCart.quantity--;
-        inCart.price = inCart.product.price * inCart.product.quantity;
+        inCart.price = inCart.product.price * inCart.quantity;
         inCart.formattedPrice = formatPrice(inCart.price);
 
         this.total.quantity--;
@@ -73,11 +73,11 @@ const Cart = {
 
         if (this.items.length > 0) {
             this.total.quantity -= inCart.quantity;
-            this.total.price -= (inCart.product.price * inCart.product.quantity);
+            this.total.price -= (inCart.product.price * inCart.quantity);
             this.total.formattedPrice = formatPrice(this.total.price);
         }
 
-        this.item = this.items.filter(item => inCart.product.id != item.product.id);
+        this.items = this.items.filter(item => inCart.product.id != item.product.id);
         return this;
     },
     getCartItem(productId) {

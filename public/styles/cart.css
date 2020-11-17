@@ -114,3 +114,17 @@
 .cart .btn.order {
   background: var(--secondary-color);
 }
+
+.cart-empty {
+  text-align: center;
+}
+
+.cart-empty p {
+  font-size: 18px;
+  color: #ccd6f6;
+}
+
+.cart-empty .btn {
+  margin: 16px auto;
+  width: 240px;
+}
