@@ -17,6 +17,9 @@ CREATE TABLE "categories" (
   "name" text NOT NULL
 );
 
+INSERT INTO categories("name") VALUES('Informática');
+INSERT INTO categories("name") VALUES('Smartphone');
+
 CREATE TABLE "files" (
   "id" SERIAL PRIMARY KEY,
   "name" text,
@@ -100,3 +103,26 @@ DELETE FROM files;
 ALTER SEQUENCE user_id_seq RESTART WITH 1;
 ALTER SEQUENCE products_id_seq RESTART WITH 1;
 ALTER SEQUENCE files_id_seq RESTART WITH 1;
+
+-- create orders
+CREATE TABLE "orders" (
+  "id" SERIAL PRIMARY KEY,
+  "seller_id" int NOT NULL,
+  "buyer_id" int NOT NULL,
+  "product_id" int NOT NULL,
+  "price" int NOT NULL,
+  "quantity" int DEFAULT 0,
+  "total" int NOT NULL,
+  "status" text NOT NULL,
+  "created_at" timestamp DEFAULT (now()),
+  "update_at" timestamp DEFAULT (now())
+);
+
+ALTER TABLE "orders" ADD FOREIGN KEY ("seller_id") REFERENCES "users" ("id");
+ALTER TABLE "orders" ADD FOREIGN KEY ("buyer_id") REFERENCES "users" ("id");
+ALTER TABLE "orders" ADD FOREIGN KEY ("product_id") REFERENCES "products" ("id");
+
+CREATE TRIGGER set_timestamp
+BEFORE UPDATE ON orders
+FOR EACH ROW
+EXECUTE PROCEDURE trigger_set_timestamp();
