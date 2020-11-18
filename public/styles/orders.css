@@ -27,3 +27,78 @@
   margin-top: 8px;
   color: var(--secondary-color);
 }
+
+.orders .item-container {
+  display: grid;
+  grid-template-columns: 1fr auto auto 100px;
+  gap: 20px;
+  align-items: center;
+  padding: 16px;
+  color: #ccd6f6;
+}
+
+.orders .item-container:hover {
+  background: rgba(255, 255, 255, .02);
+  border-radius: 8px;
+}
+
+.orders .item {
+  display: flex;
+}
+
+.orders img {
+  margin-right: 16px;
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  border: 1px solid #00000044;
+  border-radius: 8px;
+  box-shadow: 2px 2px 4px -4px #000;
+}
+
+.orders .item div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+}
+
+.item .title,
+.item .price,
+.item .updated_at {
+  margin-bottom: 4px;
+  color: #999;
+}
+
+.item .price,
+.orders .total {
+  font-weight: 700;
+}
+
+.item .updated_at {
+  margin-top: auto;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.orders .status {
+  justify-self: center;
+  padding: 4px 12px;
+  font-size: 12px;
+  letter-spacing: .8px;
+  text-transform: uppercase;
+  color: #333;
+  border-radius: 16px;
+}
+
+.orders .status.open {
+  background-color: #49d4f3;
+}
+
+.orders .status.sold {
+  background-color: #50fa7b;
+}
+
+.orders .status.canceled {
+  color: #ccd6f6;
+  background-color: #ff1414;
+}

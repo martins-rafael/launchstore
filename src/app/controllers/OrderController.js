@@ -28,7 +28,7 @@ module.exports = {
         let orders = await Order.findAll({ where: { buyer_id: req.session.userId } });
 
         const getOrdersPromise = orders.map(async order => {
-            order.product = await LoadProductsService.load('products', {
+            order.product = await LoadProductsService.load('product', {
                 where: { id: order.product_id }
             });
             order.buyer = await User.findOne({
