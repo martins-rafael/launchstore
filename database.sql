@@ -115,7 +115,7 @@ CREATE TABLE "orders" (
   "total" int NOT NULL,
   "status" text NOT NULL,
   "created_at" timestamp DEFAULT (now()),
-  "update_at" timestamp DEFAULT (now())
+  "updated_at" timestamp DEFAULT (now())
 );
 
 ALTER TABLE "orders" ADD FOREIGN KEY ("seller_id") REFERENCES "users" ("id");

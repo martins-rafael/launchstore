@@ -48,11 +48,12 @@ module.exports = {
             const updatedAt = date(order.updated_at);
             order.formattedUpdatedAt = `${order.formattedStatus} em ${updatedAt.day}/${updatedAt.month}/${updatedAt.year} às ${updatedAt.hour}h${updatedAt.minutes}`;
 
+            return order;
         });
 
         orders = await Promise.all(getOrdersPromise);
 
-        return res.render('/orders/index', { orders });
+        return res.render('orders/index', { orders });
     },
     async post(req, res) {
         try {
@@ -66,7 +67,7 @@ module.exports = {
             const createOrdersPromise = filteredItems.map(async item => {
                 let { product, price: total, quantity } = item;
                 const { price, id: product_id, user_id: seller_id } = product;
-                const status = 'opne';
+                const status = 'open';
                 const order = await Order.create({
                     seller_id,
                     buyer_id,
