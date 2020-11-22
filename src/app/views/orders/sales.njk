@@ -1,0 +1,40 @@
+{% extends "layout.njk" %}
+{% import "parts/card.njk" as card %}
+
+{% block content %}
+    {% if (sales.length < 1) %}
+        {% call card.render("", "cart-empty container") %}
+            <p>Nenhuma Venda</p>
+            <a href="/ads/create" class="btn">Comece a Vender</a>
+        {% endcall %}
+    {% else%}
+        {% call card.render("Minhas vendas", "sales orders container") %}
+            <div class="items">
+                {% for sale in sales %}
+                    <div class="item-container">
+                        <div class="item">
+                            <img src="{{sale.product.img}}" alt="Imagem do Produto {{sale.product.name}}">
+                            <div>
+                                <div class="title">{{sale.product.name}}</div>
+                                <div class="price">{{sale.formattedPrice}}</div>
+                                <div class="updated_at">{{sale.formattedUpdatedAt}}</div>
+                            </div>
+                        </div>
+
+                        <div class="quantity">
+                            Qtd. {{sale.quantity}}
+                        </div>
+
+                        <div class="total">
+                            {{sale.formattedTotal}}
+                        </div>
+
+                        <div class="status {{sale.status}}">
+                            {{sale.formattedStatus}}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endcall %}
+    {% endif %}
+{% endblock %}
