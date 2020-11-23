@@ -154,23 +154,24 @@ footer {
 ==== PRIMARY MENU ====
 =================== */
 
-nav.primary ul {
+nav.primary > ul {
     display: flex;
     justify-content: space-between;
 }
 
-nav.primary ul li a {
+nav.primary > ul > li > a {
     display: flex;
     align-items: center;
+    height: 48px;
     color: #ccd6f6;
     transition: .2s;
 }
 
-nav.primary ul li a:hover {
+nav.primary > ul > li > a:hover {
     color: var(--primary-color);
 }
 
-nav.primary ul li a i {
+nav.primary > ul > li > a > i {
     margin-right: 8px;
 }
 

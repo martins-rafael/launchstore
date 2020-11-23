@@ -89,8 +89,10 @@
 .orders .status {
   justify-self: center;
   padding: 4px 12px;
+  width: 100%;
   font-size: 12px;
   letter-spacing: .8px;
+  text-align: center;
   text-transform: uppercase;
   color: #333;
   border-radius: 16px;
