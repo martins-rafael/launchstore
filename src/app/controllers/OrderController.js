@@ -5,6 +5,7 @@ const LoadOrderService = require('../services/LoadOrderService');
 
 const mailer = require('../../lib/mailer');
 const Cart = require('../../lib/cart');
+const { update } = require('../models/User');
 
 const email = (seller, product, buyer) => `
 <h2>Olá ${seller.name}</h2>
@@ -93,5 +94,26 @@ module.exports = {
             console.error(err);
             return res.render('orders/error');
         }
+    },
+    async update(req, res) {
+        const { id, action } = req.params;
+        const acceptedActions = ['close', 'cancel'];
+
+        if (!acceptedActions.includes(action)) return res.send("Can't do this action!");
+
+        const order = await Order.findOne({ where: { id } });
+
+        if (!order) return res.send('Order not found!');
+        if (order.status != 'open') return res.send("Can't do this action!");
+
+        const statuses = {
+            close: 'sold',
+            cancel: 'canceled'
+        }
+
+        order.status = statuses[action];
+        await Order.update(id, { status: order.status });
+
+        return res.redirect('/orders/sales');
     }
 };
