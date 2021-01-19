@@ -32,6 +32,13 @@
                         <div class="status {{order.status}}">
                             {{order.formattedStatus}}
                         </div>
+
+                        <div class="actions dropdown-container">
+                            Ações <i class="material-icons">arrow_drop_down</i>
+                            <ul class="dropdown">
+                                <li><a href="/orders/{{order.id}}">Ver Pedido</a></li>
+                            </ul>
+                        </div>
                     </div>
                 {% endfor %}
             </div>
