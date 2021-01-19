@@ -126,3 +126,22 @@ CREATE TRIGGER set_timestamp
 BEFORE UPDATE ON orders
 FOR EACH ROW
 EXECUTE PROCEDURE trigger_set_timestamp();
+
+-- implement soft delete on products
+-- 1. Add column deleted_at as timestamp
+ALTER TABLE products ADD COLUMN "deleted_at" timestamp;
+
+-- 2. create a RULE that will run every time you try to delete some product
+CREATE OR REPLACE RULE delete_products AS
+ON DELETE TO products DO INSTEAD
+UPDATE products
+SET deleted_at = now()
+WHERE products.id = old.id;
+
+-- 3. Create a view where you can get only active records
+CREATE VIEW products_without_deleted AS
+SELECT * FROM products WHERE deleted_at IS NULL;
+
+-- 4. Rename Table and Views
+ALTER TABLE products RENAME TO products_with_deleted;
+ALTER TABLE products_without_deleted RENAME TO products;
