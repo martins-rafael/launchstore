@@ -1,0 +1,35 @@
+{% extends "layout.njk" %}
+{% import "partials/card.njk" as card %}
+
+{% block content %}
+  {% call card.render("Editar Produto", "product-create container") %}
+  <form method="POST" action="/products?_method=PUT" enctype="multipart/form-data">
+    <div class="fields">
+      {% include "templates/products/fields.njk" %}
+      <input
+        type="hidden"
+        name="id"
+        value={{product.id}}
+      >
+    </div>
+
+    <button
+      class="btn update"
+      type="submit"
+      onclick="Validate.allFields(event)"
+    >Atualizar</button>
+  </form>
+
+  <form id="form-delete" method="POST" action="/products?_method=DELETE">
+    <input
+      type="hidden"
+      name="id"
+      value={{product.id}}
+    >
+
+    <button class="btn delete" type="submit">Excluir</button>
+  </form>
+  {% endcall %}
+
+  {% include "partials/delete-confirmation.njk" %}
+{% endblock %}

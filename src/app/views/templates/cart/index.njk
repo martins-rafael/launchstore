@@ -1,0 +1,70 @@
+{% extends "layout.njk" %}
+{% import "partials/card.njk" as card %}
+
+{% block content %}
+  {% if (cart.items) and (cart.items.length < 1) %}
+    {% call card.render("", "cart-empty container") %}
+    <p>Seu carrinho está vazio</p>
+    <a href="/products/search" class="btn">Comprar agora</a>
+    {% endcall %}
+  {% else%}
+    {% call card.render("Carrinho", "cart container") %}
+    <div class="header">
+        <p>Produto</p>
+        <p>Preço</p>
+        <p>Qtd.</p>
+    </div>
+
+    <div class="items">
+      {% for item in cart.items %}
+        <div class="item">
+          <a href="/products/{{item.product.id}}">
+            <img src="{{item.product.img}}" alt="Imagem de {{item.product.name}}">
+            <span class="title">{{item.product.name}}</span>
+          </a>
+
+          <span class="price">{{item.product.formatedPrice}}</span>
+
+          <div class="quantity-control">
+            <form action="/cart/{{item.product.id}}/remove-one" method="POST">
+              <button class="remove">
+                <i class="material-icons">remove_circle_outline</i>
+              </button>
+            </form>
+
+            <span class="quantity">{{item.quantity}}</span>
+
+            <form action="/cart/{{item.product.id}}/add-one" method="POST">
+              <button class="add">
+                <i class="material-icons">add_circle_outline</i>
+              </button>
+            </form>
+          </div>
+
+          <form
+            class="trash"
+            action="/cart/{{item.product.id}}/delete"
+            method="POST"
+          >
+            <button class="delete">
+              <i class="material-icons">delete</i>
+            </button>
+          </form>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="total">
+      <p>Total</p>
+      <span>{{cart.total.formattedPrice}}</span>
+    </div>
+
+    <div class="action">
+      <a href="/products/search" class="btn shop">Continuar comprando</a>
+      <form action="/orders" method="POST">
+        <button class="btn order">Realizar Pedido</button>
+      </form>
+    </div>
+    {% endcall %}
+  {% endif %}
+{% endblock %}

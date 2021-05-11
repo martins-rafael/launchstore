@@ -1,0 +1,31 @@
+{% extends "layout.njk" %}
+{% import "partials/card.njk" as card %}
+
+{% block content %}
+  {% call card.render("Detalhes", "user-dashboard container") %}
+  <form method="POST" action="/users?_method=PUT">
+    <div class="fields">
+      {% include "templates/user/fields.njk" %}
+      <input
+        type="hidden"
+        name="id"
+        value={{user.id}}
+      >
+    </div>
+
+    <button class="btn update" type="submit">Atualizar</button>
+  </form>
+
+  <form id="form-delete" method="POST" action="/users?_method=DELETE">
+    <input
+      type="hidden"
+      name="id"
+      value={{user.id}}
+    >
+
+    <button class="btn delete" type="submit">Excluir</button>
+  </form>
+  {% endcall %}
+
+  {% include "partials/delete-confirmation.njk" %}
+{% endblock %}

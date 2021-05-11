@@ -1,0 +1,79 @@
+{% extends "layout.njk" %}
+{% import "partials/card.njk" as card %}
+
+{% block content %}
+  {% call card.render("", "product-single") %}
+  <div class="gallery">
+    <div class="highlight">
+      {% if not product.files[0] %}
+        <img src="http://placehold.it/500x500?text=Produto sem foto" alt="foto do produto">
+      {% else %}
+        <img
+          src="{{product.files[0].src}}"
+          alt="{{product.files[0].name}}"
+          onclick="Lightbox.open()"
+        >
+      {% endif %}
+
+      <div class="lightbox-target">
+        <img src="{{product.files[0].src}}" alt="{{product.files[0].name}}">
+        <a
+          href="#"
+          class="lightbox-close"
+          onclick="Lightbox.close()"
+        >
+          <i class="material-icons">close</i>
+        </a>
+      </div>
+    </div>
+
+    <div class="gallery-preview">
+      {% for image in product.files %}
+        <img src="{{image.src}}" alt="{{image.name}}"
+          {% if loop.index0 == 0 %}
+            class="active"
+          {% endif %}
+          onclick="ImageGallery.setImage(event)"
+        >
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="info">
+    <h1>{{product.name}}</h1>
+    <div class="published">
+      Publicado em {{product.published.day}} às {{product.published.hour}}
+    </div>
+
+    <div class="description">
+      {{product.description}}
+    </div>
+
+    <div class="price-buy">
+      <div class="price">
+        {{product.formatedPrice}}
+
+        {% if product.formatedPrice !== product.formatedOldPrice %}
+          <span class="old">{{product.formatedOldPrice}}</span>
+        {% endif %}
+      </div>
+
+      {% if (session.userId) and (product.user_id == session.userId) %}
+        <p class="unavailable">Você é o vendedor</p>
+      {% else %}
+        <div class="buy">
+          {% if product.status == 0 %}
+            <p class="unavailable">Indisponível</p>
+          {% elseif product.quantity == 0 %}
+            <p class="unavailable">Fora de Estoque</p>
+          {% else %}
+            <form action="/cart/{{product.id}}/add-one" method="POST">
+              <button class="btn">Adicionar ao Carrinho</button>
+            </form>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+  {% endcall %}
+{% endblock %}

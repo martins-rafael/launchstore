@@ -1,0 +1,42 @@
+{% extends 'layout.njk' %}
+{% import 'partials/card.njk' as card %}
+
+{% block content %}
+  {% call card.render("", "order-detail container") %}
+  <div class="info">
+    <div class="buyer">
+      <h4>Comprador</h4>
+      <div class="name">{{order.buyer.name}}</div>
+      <div class="email">{{order.buyer.email}}</div>
+      <div class="address">{{order.buyer.address}}</div>
+      <div class="cep">{{order.buyer.cep}}</div>
+    </div>
+
+    <div class="seller">
+      <h4>Vendedor</h4>
+      <div class="name">{{order.seller.name}}</div>
+      <div class="email">{{order.seller.email}}</div>
+      <div class="address">{{order.seller.address}}</div>
+      <div class="cep">{{order.seller.cep}}</div>
+    </div>
+
+    <div class="status {{order.status}}">
+      <h2>{{order.formattedStatus}}</h2>
+      <p>{{order.formattedUpdatedAt}}</p>
+    </div>
+  </div>
+
+  <div class="product">
+    <img src="{{order.product.img}}" alt="Imagem do produto {{order.product.name}}">
+    <p class="name">{{order.product.name}}</p>
+    <p class="price">
+      {{order.formattedPrice}} <br>
+      <span class="quantity">x {{order.quantity}}</span>
+    </p>
+  </div>
+
+  <div class="total">
+    <span>Total</span> {{order.formattedTotal}}
+  </div>
+  {% endcall %}
+{% endblock %}
