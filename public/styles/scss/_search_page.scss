@@ -1,0 +1,48 @@
+.search-products {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  margin: 48px auto;
+
+  .header {
+    margin-bottom: 48px;
+    font-size: 14px;
+    color: #ccd6f6;
+
+    h2 {
+      margin-bottom: 8px;
+      font-size: 26px;
+      text-transform: uppercase;
+    }
+
+    nav {
+      h4 {
+        margin-bottom: 16px;
+        font-size: 14px;
+        text-transform: uppercase;
+        color: #555;
+      }
+
+      ul li {
+        margin: 4px 0;
+
+        a {
+          color: #999;
+          transition: 0.2s;
+
+          &:hover {
+            font-weight: bold;
+            color: #ccd6f6;
+          }
+        }
+      }
+    }
+  }
+}
+
+.input .error {
+  margin-top: 4px;
+  padding: 4px 8px;
+  color: #fff;
+  background-color: #e74c3c;
+  border-radius: 16px;
+}

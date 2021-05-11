@@ -1,0 +1,47 @@
+{% extends "layout.njk" %}
+{% import "partials/card.njk" as card %}
+
+{% block content %}
+  {% if (orders.length < 1) %}
+    {% call card.render("", "cart-empty container") %}
+    <p>Nenhum pedido</p>
+    <a href="/products/search" class="btn">Comprar agora</a>
+    {% endcall %}
+  {% else%}
+    {% call card.render("Meus pedidos", "orders container") %}
+    <div class="items">
+      {% for order in orders %}
+        <div class="item-container">
+          <div class="item">
+            <img src="{{order.product.img}}" alt="Imagem do Produto {{order.product.name}}">
+            <div>
+              <div class="title">{{order.product.name}}</div>
+              <div class="price">{{order.formattedPrice}}</div>
+              <div class="updated_at">{{order.formattedUpdatedAt}}</div>
+            </div>
+          </div>
+
+          <div class="quantity">
+            Qtd. {{order.quantity}}
+          </div>
+
+          <div class="total">
+            {{order.formattedTotal}}
+          </div>
+
+          <div class="status {{order.status}}">
+            {{order.formattedStatus}}
+          </div>
+
+          <div class="actions dropdown-container">
+            Ações <i class="material-icons">arrow_drop_down</i>
+            <ul class="dropdown">
+              <li><a href="/orders/{{order.id}}">Ver Pedido</a></li>
+            </ul>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    {% endcall %}
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,10 @@
+.search input {
+  padding: 8px 16px;
+  width: 100%;
+  font-size: 16px;
+  border: 2px solid #00000088;
+
+  &:focus {
+    border: 2px solid var(--primary-color);
+  }
+}

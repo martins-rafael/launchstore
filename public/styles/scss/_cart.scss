@@ -1,0 +1,165 @@
+.cart {
+  .header {
+    display: grid;
+    grid-template-columns: 1fr 100px 100px 30px;
+    gap: 16px;
+    margin-bottom: 16px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+    color: #ccd6f6;
+
+    p:nth-child(2) {
+      text-align: right;
+    }
+
+    p:nth-child(3) {
+      text-align: center;
+    }
+  }
+
+  .item {
+    display: grid;
+    grid-template-columns: 1fr 100px 100px 30px;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid #333;
+    transition: 0.2s;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 8px;
+    }
+
+    > a {
+      display: flex;
+      align-items: center;
+      margin-left: 8px;
+      color: #999;
+    }
+  }
+
+  img {
+    margin-right: 16px;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 2px 2px 4px -2px rgba(0, 0, 0, 0.4);
+  }
+
+  .price {
+    text-align: right;
+    color: #ccd6f6;
+  }
+
+  .quantity-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+
+    button {
+      color: #ccc;
+      border: none;
+    }
+  }
+
+  .quantity {
+    margin: 0 8px;
+  }
+
+  .add,
+  .remove,
+  .delete {
+    cursor: pointer;
+    background-color: transparent;
+  }
+
+  .delete {
+    color: #ff1414;
+  }
+
+  .total {
+    margin-top: 8px;
+    text-align: right;
+
+    p {
+      margin-bottom: 4px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #efefef;
+    }
+
+    span {
+      font-size: 22px;
+      font-weight: 900;
+      color: #ccd6f6;
+    }
+  }
+
+  .action {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+    width: 100%;
+  }
+
+  .btn.shop {
+    width: 240px;
+  }
+
+  .btn.order {
+    background: var(--secondary-color);
+  }
+}
+
+.cart-empty {
+  text-align: center;
+
+  p {
+    font-size: 18px;
+    color: #ccd6f6;
+  }
+
+  .btn {
+    margin: 16px auto;
+    width: 240px;
+  }
+}
+
+/* ===========
+==== MENU ====
+=========== */
+
+header div.container {
+  grid-template-columns: 220px auto 315px;
+  gap: 8px;
+}
+
+li.cart a {
+  position: relative;
+
+  span {
+    position: absolute;
+    top: 12px;
+    right: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    background-color: #ff1414;
+    border-radius: 50%;
+  }
+
+  &:hover span {
+    color: #333;
+    background-color: #ccd6f6;
+  }
+}

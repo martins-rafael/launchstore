@@ -1,0 +1,7 @@
+.product-single {
+  .card-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+}

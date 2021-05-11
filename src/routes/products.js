@@ -1,5 +1,4 @@
-const express = require('express');
-const routes = express.Router();
+const routes = require('express').Router();
 const multer = require('../app/middlewares/multer');
 
 const ProductController = require('../app/controllers/ProductController');

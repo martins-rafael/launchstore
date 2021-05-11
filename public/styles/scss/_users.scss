@@ -1,0 +1,71 @@
+.users-register,
+.user-dashboard {
+  max-width: 600px;
+}
+
+.users-ads {
+  max-width: 700px;
+
+  .items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    padding: 16px 0;
+  }
+
+  .item {
+    display: grid;
+    grid-template-columns: 116px 1fr;
+    align-items: start;
+    color: #999;
+
+    .image {
+      width: 100px;
+      height: 100px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      box-shadow: 2px 2px 4px -4px #000;
+    }
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+
+    .title {
+      margin-bottom: 4px;
+      font-size: 18px;
+      font-weight: normal;
+    }
+
+    .price {
+      margin-bottom: 4px;
+      font-weight: bold;
+      color: #ccd6f6;
+    }
+
+    .published {
+      font-size: 14px;
+      font-weight: lighter;
+    }
+
+    .actions {
+      display: flex;
+      margin-top: auto;
+
+      a {
+        margin-right: 16px;
+        color: var(--primary-color);
+
+        &:hover {
+          font-weight: bold;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

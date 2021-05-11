@@ -1,0 +1,70 @@
+<header>
+  <div class="container">
+    <a href="/">
+      <div class="logo">
+        <h1>Launchstore</h1>
+        <h2>COMPRA E VENDA</h2>
+      </div>
+    </a>
+
+    <form class="search" method="GET" action="/products/search">
+      <input type="text"
+        name="filter"
+        placeholder="Buscar por produtos"
+        {% if search.term %}
+          value="{{search.term}}"
+        {% endif %}
+      >
+    </form>
+
+    <nav class="primary">
+      <ul>
+        <li>
+          <a href="/ads/create">
+            <i class="material-icons">add</i>
+            Novo Anúncio
+          </a>
+        </li>
+        <li class="dropdown-container">
+          <a href="/accounts">
+            <i class="material-icons">account_circle</i>
+            Minha Conta
+          </a>
+          {% if session.userId %}
+            <ul class="dropdown">
+              <li>
+                <a href="/users">Minha Conta</a>
+              </li>
+
+              <li>
+                <a href="/users/ads">Meus Anúncios</a>
+              </li>
+
+              <li>
+                <a href="/orders">Meus Pedidos</a>
+              </li>
+
+              <li>
+                <a href="/orders/sales">Minhas Vendas</a>
+              </li>
+
+              <li>
+                <form method="POST" action="/users/logout">
+                  <button>Sair</button>
+                </form>
+              </li>
+            </ul>
+          {% endif %}
+        </li>
+        <li class="cart">
+          <a href="/cart">
+            <i class="material-icons">shopping_cart</i>
+            {% if (session.cart) and (session.cart.total.quantity > 0) %}
+              <span id="cart-status-info">{{session.cart.total.quantity}}</span>
+            {% endif %}
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

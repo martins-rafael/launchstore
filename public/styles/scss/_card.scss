@@ -1,0 +1,19 @@
+.card {
+  margin: 32px auto;
+  padding: 32px 24px;
+  width: 90%;
+  max-width: 940px;
+  background-color: #121214;
+  border-radius: 16px;
+  box-shadow: 0 4px 8px -4px rgba(0, 0, 0, .6);
+}
+
+.card-header h3 {
+  margin-bottom: 16px;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 24px;
+  letter-spacing: .7px;
+  text-transform: uppercase;
+  color: var(--primary-color);
+}

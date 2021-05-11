@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
+  <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+    name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Compra e venda de produtos">
     <!--[if IE]><link rel="shortcut icon" href="assets/favicon.ico"><![endif]-->
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    {% include "parts/styles.njk" %}
-    
-    {% block head %}
-        <title>Launchstore</title>
-    {% endblock %}
-</head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="/styles/style.css">
 
-<body>
-    {% include "parts/messages.njk" %}
-    {% include "parts/header.njk" %}
+    {% block head %}
+      <title>Launchstore</title>
+    {% endblock %}
+  </head>
+
+  <body>
+    {% include "partials/messages.njk" %}
+    {% include "partials/header.njk" %}
 
     {% block content %}
     {% endblock %}
 
-    {% include "parts/footer.njk" %}
-</body>
+    {% include "partials/footer.njk" %}
+  </body>
 </html>

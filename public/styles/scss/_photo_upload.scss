@@ -1,0 +1,69 @@
+form .item {
+  #photos-upload {
+    display: block;
+    position: relative;
+    width: 200px;
+    overflow: hidden;
+
+    p {
+      padding: 16px;
+      width: 100%;
+      text-align: center;
+      color: #ccd6f6;
+      background-color: var(--secondary-color);
+      border-radius: 24px;
+      box-shadow: 0 2px 2px -6px #333;
+    }
+  }
+
+  #photos-input {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  #photo-preview {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin: 8px 0;
+    width: 100%;
+
+    .photo {
+      position: relative;
+
+      img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+      }
+
+      i {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        font-size: 300%;
+        color: #f00;
+        background-color: rgba(0, 0, 0, 0.8);
+        opacity: 0;
+        transition: 0.2s;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
