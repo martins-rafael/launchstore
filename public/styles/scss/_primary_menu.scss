@@ -1,0 +1,20 @@
+nav.primary > ul {
+  display: flex;
+  justify-content: space-between;
+
+  & > li > a {
+    display: flex;
+    align-items: center;
+    height: 48px;
+    color: #ccd6f6;
+    transition: 0.2s;
+
+    &:hover {
+      color: var(--primary-color);
+    }
+
+    & > i {
+      margin-right: 8px;
+    }
+  }
+}

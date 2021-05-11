@@ -1,0 +1,22 @@
+.product-single .info {
+  display: grid;
+  grid-template-rows: auto 40px 2fr 1fr;
+
+  h1 {
+    font-size: 32px;
+    line-height: 42px;
+    text-transform: uppercase;
+    color: #ccd6f6;
+  }
+
+  .published {
+    font-size: 12px;
+    line-height: 22px;
+    letter-spacing: 0.4px;
+    color: #888;
+  }
+
+  .description {
+    color: #999;
+  }
+}
